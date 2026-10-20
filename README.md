@@ -26,7 +26,7 @@ The package includes:
 
 The main user-adjustable setups are defined as follows in subfolders of the *setups* folder:
 
-- **Model options** (*options.txt*): control the modelling workflow, including the activation of Monte Carlo simulations and of each modelling stages, as well as the main model assumptions. When both stages are activated, options selected outputs from stage 1 can be passed to stage 2. The available options determine which compositions and parameters are transferred between stages and which are instead taken from the input files.
+- **Model options** (*options.txt*): control the modelling workflow, including the activation of Monte Carlo simulations and of each modelling stages, as well as the main model assumptions. When both stages are activated, options determine which compositions and parameters are passed from stage 1 can be passed to stage 2 or taken from the input files.
 - **Model parameters** (*parameters.txt*): define the fixed parameters used in the simulations.
 - **Source compositions** (*sources.txt*): specify the starting compositions and their references for each lithology, as well as modal, melting and partition coefficients. These value are read based on their name-reference in a user-adjustable lookup table (*input.xlsx*).
 - **Monte Carlo ranges** (*montecarlo_ranges.txt*): define the ranges of input parameters and compositions sampled during Monte Carlo simulations, including which variables are adaptively resampled.
@@ -61,7 +61,9 @@ The post-processing of adaptive Monte Carlo simulations can be performed using *
 
 ## Reproducibility note
 
+The model is applied to investigate the origin and evolution of geochemical signatures in the mid-ocean ridge basalt (MORB) mantle, with particular emphasis on selenium isotopes and the mechanisms involved in the deep recycling of oceanic plates, as presented in König *et al.*, *Selenium Isotopes Uncover the Mechanism of the Deep Plate Tectonic Cycle in the MORB Mantle* (*Science Advances*, manuscript no. aec9625).
 
+The default setup provided corresponds to the Monte Carlo simulations reported in König et al. 
 
 ## Credits
 
