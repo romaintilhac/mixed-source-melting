@@ -48,5 +48,5 @@ Contact: romain.tilhac@umontpellier.fr
 
 ## References
 
-Koenig, S., et al. Selenium Isotopes Uncover the Mechanism of the Deep Plate Tectonic Cycle in the MORB Mantle. Science Advances. Manuscript no. aec9625 (preliminary acceptance).
+König, S., Varas-Reus, M.I., Tilhac, R., Garrido, C. J. Selenium Isotopes Uncover the Mechanism of the Deep Plate Tectonic Cycle in the MORB Mantle. Science Advances. Manuscript no. aec9625 (preliminary acceptance).
 
