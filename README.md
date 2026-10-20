@@ -16,7 +16,7 @@ The package includes:
 
 ### 1. Prerequisites
 
-- **[Alphamelts 1.9](https://magmasource.caltech.edu/alphamelts/)** is required to run pMELTS as part of this code and you need to make the following changes in _alphamelts_default_env.txt: *ALPHAMELTS_MINP* +0 and *ALPHAMELTS_SAVE_ALL* true.
+- **[Alphamelts 1.9](https://magmasource.caltech.edu/alphamelts/)** is required to run pMELTS as part of this code and you need to make the following changes in _alphamelts_default_env.txt_: *ALPHAMELTS_MINP* +0 and *ALPHAMELTS_SAVE_ALL* true.
 
 - MATLAB with the **Statistics and Machine Learning Toolbox** is required to run the adaptive Monte Carlo simulations and plotting: _randsample_ performs weighted resampling, and _histogram_ is used to plot input distributions. The code has been tested in Matlab R2024b.
 
