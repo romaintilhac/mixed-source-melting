@@ -1,0 +1,34 @@
+----------------------------------------------------------------------
+Monte Carlo randomized input parameters and compositions for the MSM3 model
+Variables, values, references and descriptions are separated by the "|" character. Rows starting with % are ignored. Composition variables should formatted as "table.header". 
+Created by Romain Tilhac (romain.tilhac@umontpellier.fr)
+----------------------------------------------------------------------
+
+MONTE CARLO RANDOMIZED PARAMETERS
+
+Variable	    	|Distribution	|Min	|Max	|Mean	|STDEV	|Adapt	|Round	|Reference  		    |Description (as in parameters.txt unless specified)	
+	
+STAGE 1
+
+P1		        |0		|3	|5	|	|	|1	|0.1	|Rosenthal et al. 2018	    |
+T1_excess		|0	        |10     |50     |       |       |1      |1      |default                    |
+phi1    	    	|0		|0	|1	|	|	|1	|	|default		    |
+PropMSS_Pdt1		|0		|0	|1	|	|	|1	|       |default                    |
+PropMSS_Ecl1		|0		|0	|1	|	|	|1	|       |default                    |
+PropEcl1	    	|0		|0.01	|0.1    |	|	|1	|0.01   |default		    |
+R1              	|0		|0.01   |10	|	|	|1	|   	|default		    |
+S_Ecl		    	|0		|30	|250	|	|	|1	|	|default        	    |Starting sulfur concentration in eclogite [ppm] (also used in stage 2 if stage1residueEclS==0)
+CE_Ecl.Se	    	|2		|6.4	|141	|85	|	|1	|	|Konig et al. 2021	    |Starting Se concentration in eclogite [ppm]
+isoCE_Ecl.Se82		|2		|-1.89	|0.48	|-0.38	|	|1	|	|Konig et al. 2021	    |Starting d82Se of eclogite
+
+STAGE 2
+
+Tp		        |0		|1280	|1420	|	|	|1	|5	|Ding & Dasgupta 2017	    |
+phi2		    	|0		|0	|1	|	|	|1	|	|default		    |
+PropMSS_Pdt		|0		|0	|1	|	|	|1	|       |default                    |
+PropMSS_Ecl		|0		|0	|1	|	|	|1	|       |default                    |
+PropMSS_Pyr		|0		|0	|1	|	|	|1	|       |default                    |
+Ur 		        |0		|0	|40	|	|	|1	|	|Gleeson et al. 2020	    |
+Xref 		    	|0		|0	|0.01	|	|	|1	|	|Gleeson et al. 2020	    |
+
+

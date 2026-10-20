@@ -1,0 +1,30 @@
+----------------------------------------------------------------------
+Computational settings for the MSM3 model
+Variables, values and descriptions are separated by the "|" character. Rows starting with % are ignored.
+Created by Romain Tilhac (romain.tilhac@umontpellier.fr)
+----------------------------------------------------------------------
+
+SETTINGS
+
+Variable		    |Value		|Description	
+
+MONTE CARLO
+
+iterations_preadapt	    |10000		|Number of iterations during the pre-adaptive phase (>2)
+iterations		    |2000		|Number of iterations during the adaptive phase (>2)
+maxcycle		    |5			|Number of adaptive cycles (only used if option.MonteCarlo==1, 0=non-adaptative Monte Carlo)
+target			    |0.95		|Target goodness of fit (>0-1)
+stagnation_threshold	    |0.001		|Threshold in goodness of fit to evaluate stagnation (>0-1)
+stagnation_max		    |5			|Maximum number of stagnating cycles
+
+MSM3
+
+dP			    |0.01	    	|Pressure increment [GPa]
+F_round                	    |0.01	    	|Rounding of stage-1 melting degrees
+Prop_round                  |0.01	    	|Rounding of lithological proportions 
+PropPyr_thresh              |0.005	    	|Threshold proportion of pyroxenite passed to stage 2
+pristineEcl_thresh          |0.01	    	|Threshold melting degree of eclogite considered pristine 
+F_thresh		    |0.05		|Threshold in degree of melting to use fine or coarse nodes
+fine_nodes		    |20			|Fine-node spacing (multiples of dP)
+coarse_nodes		    |50			|Coarse-node spacing (multiples of dP)
+missingME		    |0.001	    	|Major-element concentration to replace missing values for pMELTS calculation

@@ -1,0 +1,47 @@
+----------------------------------------------------------------------
+Options for the MSM3 model
+Variables, values and descriptions are separated by the "|" character. Rows starting with % are ignored.
+Created by Romain Tilhac (romain.tilhac@umontpellier.fr)
+----------------------------------------------------------------------
+
+OPTIONS
+
+Variable		    	|Value	|Description	
+    
+MonteCarlo		    	|1	|1 to run Monte Carlo simulation with randomized inputs, 0 for single run with fixed inputs
+
+STAGE 1
+
+stage1			    	|1	|1 to run stage-1 model, 0 to run stage 2 only
+stage1reaction			|1 	|1 to run stage-1 with melting model, 0 to use solid-state mixing
+stage1MeltPX			|1	|1 to run Melt-PX in stage 1, 0 to use input F_Pdt and F_Ecl
+stage1Prop          		|1	|1 to use stage-1 source proportion outputs, 0 to use inputs
+stage1PyrS		    	|1	|1 to use stage-1 output sulfur concentration in pyroxenite for stage 2, 0 to use inputs
+stage1PyrME		    	|0	|1 to use stage-1 output major-element compositions in pyroxenite for stage 2, 0 to use inputs
+stage1EclresidueS		|1	|1 to use stage-1 output sulfur concentration in residual eclogite for stage 2, 0 to use inputs
+stage1EclresidueME		|1	|1 to use stage-1 output lithophile major-element compositions in residual eclogite for stage 2, 0 to use inputs
+stage1EclresidueTE		|1	|1 to use stage-1 output lithophile trace-element compositions in residual eclogite for stage 2, 0 to use inputs
+stage1EclresidueCE		|1	|1 to use stage-1 output chalchophile trace-element compositions in residual eclogite for stage 2, 0 to use inputs
+
+STAGE 2
+
+stage2			    	|1	|1 to run stage-2 model, 0 to run stage 1 only
+stage2interpolation		|1 	|1 to use interpolation for stage-2 pMELTS and SCSS calculations (faster), 0 to compute all (slower)
+MeltPX			    	|1 	|1 to allow loading existing Melt-PX outputs if available (faster), 0 to force Melt-PX to run even if outputs exist (slower)
+    
+COMMON
+
+ref			        |1 	|1 to refertilize with melts from all lithologies, 0 to only allow pyroxenite and eclogite melts to refertilize
+refS			    	|1 	|1 to enable refertilization for sulfur, 0 to disable
+refTE			    	|1 	|1 to enable refertilization for lithophile trace elements, 0 to disable
+refCE			    	|1 	|1 to enable refertilization for chalcophile trace elements, 0 to disable
+SCSS			    	|1 	|1 to compute Sulfur Concentration at Sulfide Saturation (SCSS), 0 to use defaultSCSS
+SCSSref			    	|1	|1 to use a sulfide-present SCSS formulation (Smythe et al. 2017), 0 to use a sulfide-free SCSS formulation (Ding et al. 2017)
+SCSSideal		    	|1	|1 to use ideal assumption for SCSS calculation, 0 for non-ideal assumption (only used if option.SCSSref==1)
+sul			        |1 	|1 to calculate sulfide mode based on SE input, 0 to assume a FeS stochiometry (Brenan 2015)
+SeTe		    		|1 	|1 to use Fe-dependent partition coefficients for Se-Te from Brenan et al. 2015, 0 to use CE_Kd
+
+pMELTS
+
+pMELTS			    	|1 	|1 to allow loading existing pMELTS outputs if available (faster), 0 to force pMELTS to run even if outputs exist (slower)
+pMELTSnoprint			|1 	|1 to hide pMELTS calculations, 0 to show

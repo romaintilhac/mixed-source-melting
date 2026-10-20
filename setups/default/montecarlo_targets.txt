@@ -1,0 +1,22 @@
+----------------------------------------------------------------------
+Monte Carlo target values and errors for the MSM3 model
+Variables, values and errors are separated by the "|" character. Rows starting with % are ignored.
+Created by Romain Tilhac (romain.tilhac@umontpellier.fr)
+----------------------------------------------------------------------
+
+TARGETS
+
+Variable		|Value		|Error
+
+STAGE 1
+
+CE_mixPyr1.Se		|214.89		|88.73
+isoCE_mixPyr1.Se82	|-0.1287	|0.0257
+normX_mixPyr1		|37.1582	|20
+normY_mixPyr1		|44.4443	|10
+
+STAGE 2
+
+CE_finalmelt.Se		|182.93		|14.6589
+isoCE_finalmelt.Se82	|-0.1569	|0.0890
+
