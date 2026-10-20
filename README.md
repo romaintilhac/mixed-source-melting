@@ -1,22 +1,31 @@
 # Mixed-Source Melting model (MSM3)
 
-Standalone MATLAB implementation of the Mixed-Source Melting model (MSM3) to investigate mantle magmatism and the recycling of oceanic crust and its geochemical signatures through the deep plate tectonic cycle.
+MATLAB implementation of the Mixed-Source Melting model (MSM3) to investigate the impact of recycled oceanic crust and its geochemical signatures in mid-ocean ridge basalts.
 
 The package includes:
-- The main model driver (*mainMixedSourceMelting.m*), which runs forward simulations or adaptive Monte Carlo simulations based on the MSM3 framework.
-- A set of user-defined model components (*userModelComponents.m*) to specify the minerals, major elements, trace elements and isotopes included in the simulations.
-- A user file (*userFolderPaths.m*) to configure the paths to the required software and model directories, select the model setup and define the output folder.
-- A *setups* folder containing the configuration files used to initialize the model, including starting compositions, model parameters, partition coefficients and target geochemical constraints.
+- The main script (*mainMixedSourceMelting.m*), which runs forward simulations or adaptive Monte Carlo simulations based on the MSM3 model.
+- A user-defined model components file (*userModelComponents.m*) to specify the minerals, major elements, trace elements and isotopes included in the simulations.
+- A user configuration file (*userFolderPaths.m*) to set the paths to the required model directories.
+- A *setups* folder containing the configuration files used to initialize the model, including source compositions, model parameters and target geochemical constraints.
 - A *resources* folder containing the databases and lookup tables required for the geochemical calculations.
-- A *utils* folder containing the functions required to run the model, process Monte Carlo simulations and evaluate model outputs.
+- A *utils* folder containing the supporting functions required to run the model.
+- A post-processing script (*processMonteCarlo.m*) to process Monte Carlo simulations and plot their outputs.
 
 The model is applied to investigate the origin and evolution of geochemical signatures in the mid-ocean ridge basalt (MORB) mantle, with particular emphasis on selenium isotopes and the mechanisms involved in the deep recycling of oceanic plates, as presented in Koenig et al., *Selenium Isotopes Uncover the Mechanism of the Deep Plate Tectonic Cycle in the MORB Mantle* (*Science Advances*, manuscript no. aec9625).
 
 ## Instructions & user changes
 
-The model can be launched by running *mainMixedSourceMelting.m* from the repository's main directory.
+- [Alphamelts 1.9](https://magmasource.caltech.edu/alphamelts/) is required to run pMELTS as part of this code and you need to make the following changes in _alphamelts_default_env.txt:
+    %   ALPHAMELTS_MINP +0
+    %   ALPHAMELTS_SAVE_ALL true
 
-Before running the model, configure the paths in *userFolderPaths.m*, particularly the AlphaMELTS installation directory (*Alpha_install*) and the directory containing the AlphaMELTS executable (*Alpha_link*). The user can also select the model setup (*setup_name*) and output folder (*folder_name*).
+- MATLAB with the **Statistics and Machine Learning Toolbox** is required to run the adaptive Monte Carlo simulations and plotting: _randsample_ performs weighted resampling, and _histogram_ is used to plot sampled input distributions. The code has been tested in Matlab R2024b.
+
+- Before running the model, make sure all paths in *userFolderPaths.m* are consistent with your installation, particularly the AlphaMELTS directory (*Alpha_install*) and executable (*Alpha_link*).
+
+The user can also select the model setup (*setup_name*) and output folder (*folder_name*).
+
+The model can be directly launched by running *mainMixedSourceMelting.m* from the repository's main directory.
 
 The main user-adjustable settings are defined in the *setups* folder, in the subfolder specified by *setup_name* (default: *default*). The following files control the model configuration:
 
