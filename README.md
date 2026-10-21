@@ -90,10 +90,8 @@ To reproduce Electronic Appendix Figures EA1-5:
 
 ## Credits
 
-Developed by [**Romain Tilhac**](https://romaintilhac.github.io), CNRS researcher at Géosciences Montpellier, France.
-
-Updated on October 21th, 2026
-
+Developed by [**Romain Tilhac**](https://romaintilhac.github.io), CNRS researcher at Géosciences Montpellier, France. <br />
+Updated on October 21th, 2026. <br />
 Contact: [romain.tilhac@umontpellier.fr](mailto:romain.tilhac@umontpellier.fr)
 
 ## References
