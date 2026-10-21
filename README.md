@@ -90,11 +90,12 @@ To reproduce Electronic Appendix Figures EA1-5:
 
 ## Credits
 
-Developed by [**Romain Tilhac**](https://romaintilhac.github.io), CNRS researcher at Géosciences Montpellier, France. <br />
-Updated on October 21th, 2026. <br />
+Developed by [**Romain Tilhac**](https://romaintilhac.github.io/), CNRS researcher at Géosciences Montpellier, France. <br />
 Contact: [romain.tilhac@umontpellier.fr](mailto:romain.tilhac@umontpellier.fr)
 
 ## References
 
 König, S., Varas-Reus, M.I., Tilhac, R., Garrido, C. J. Selenium Isotopes Uncover the Mechanism of the Deep Plate Tectonic Cycle in the MORB Mantle. *Science Advances*, aec9625 (preliminary acceptance).
+
+_Updated on October 21th, 2026._
 
