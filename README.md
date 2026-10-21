@@ -1,24 +1,24 @@
 # Mixed-Source Melting model (MSM3)
 
-MATLAB implementation of the Mixed-Source Melting model (MSM3) to investigate the impact of recycled oceanic crust and its geochemical signatures in mid-ocean ridge basalts.
+MATLAB implementation of the Mixed-Source Melting model (MSM3) to investigate the geochemical signature of recycled oceanic crust in the mantle source of mid-ocean ridge basalts.
 
 The package includes:
 
-- The main script (*mainMixedSourceMelting.m*), which runs forward simulations or adaptive Monte Carlo simulations based on the MSM3 model.
-- A post-processing script (*processMonteCarlo.m*) to process Monte Carlo simulations and plot their outputs.
-- A user-defined model components file (*userModelComponents.m*) to specify the minerals, major elements, trace elements and isotopes included in the simulations.
-- A user configuration file (*userFolderPaths.m*) to set the paths to the required model directories.
+- The main script (*mainMixedSourceMelting.m*) to run forward simulations or adaptive Monte Carlo simulations based on the MSM3 model.
+- A post-processing script (*processMonteCarlo.m*) to process and plot Monte Carlo simulation outputs.
+- A user-defined model components file (*userModelComponents.m*) to specify the minerals, major/trace elements and isotopes included in the simulations.
+- A user configuration file (*userFolderPaths.m*) to set the paths to the required model directories, define the model setup and output folder.
 - A *setups* folder containing the configuration files used to initialize the model, including source compositions, model parameters and target geochemical constraints.
-- A *resources* folder containing the databases and lookup tables required for the geochemical calculations.
-- A *utils* folder containing the supporting functions required to run the model.
+- A *resources* folder containing the data required for the geochemical calculations.
+- A *utils* folder containing all the supporting functions required to run the model.
 
 ## Instructions & user changes
 
 ### 1. Prerequisites
 
-- **[Alphamelts 1.9](https://magmasource.caltech.edu/alphamelts/)** is required to run pMELTS as part of this code and you need to make the following changes in _alphamelts_default_env.txt_: *ALPHAMELTS_MINP* +0 and *ALPHAMELTS_SAVE_ALL* true.
+- MATLAB (the code has been tested in Matlab R2024b) with the **Statistics and Machine Learning Toolbox**, which is required for the adaptive Monte Carlo simulations (_randsample_ for weighted resampling and _histogram_ to plot input distributions.
 
-- MATLAB with the **Statistics and Machine Learning Toolbox** is required to run the adaptive Monte Carlo simulations and plotting: _randsample_ performs weighted resampling, and _histogram_ is used to plot input distributions. The code has been tested in Matlab R2024b.
+- **[Alphamelts 1.9](https://magmasource.caltech.edu/alphamelts/)** to run pMELTS as part of this code with the following changes in _alphamelts_default_env.txt_: *ALPHAMELTS_MINP* +0 and *ALPHAMELTS_SAVE_ALL* true.
 
 - Before running the model, make sure all paths in *userFolderPaths.m* are consistent with your installation, particularly the AlphaMELTS directory (*Alpha_install*) and executable (*Alpha_link*).
 
