@@ -66,7 +66,7 @@ The post-processing of adaptive Monte Carlo simulations can be performed using *
 
 The model was applied to investigate the geochemical signatures of oceanic recycling in mid-ocean ridge basalts (MORB), based on the selenium (Se)-isotope compositions of pyroxenites, as presented in **König *et al.* 2026**.
 
-The version of *userModelComponents.m* and setups provided are already prepared for this application to &delta;<sup>82</sup>Se:
+The provided version of *userModelComponents.m* and setups corresponds to this application to &delta;<sup>82</sup>Se:
 
 - *default_MC.txt* corresponds to the main Monte Carlo simulation with 20,000 iterations, which is aimed as a joint inversion of the Se-isotope compositions and Se concentrations of the studied pyroxenites and global MORB database (*data.xlsx*).
 - *default_forward.txt* corresponds to a single forward model used to generate detailed model inputs and outputs.
@@ -77,7 +77,7 @@ To reproduce **König *et al.* 2026** Figures 2 and 3:
 2. Run *mainMixedSourceMelting.m*.
 3. Run *processMonteCarlo.m* to generate the figures.
 
-Alternatively, because no preloaded calculation outputs are provided, running the full Monte Carlo simulation from the scratch will take a fairly long time. The figures can therefore be also obtained from pre-run results provided in the *output* folder:
+Alternatively, because no pre-loaded calculation outputs are provided due to storage limitations, running the full Monte Carlo simulation from the scratch will take a fairly long time. The figures can therefore be also obtained from pre-run results provided in the *output* folder:
 
 1. Set _setup_name_ to *default_MC_preload* in *userFolderPaths.m*.
 2. Run *processMonteCarlo.m* to generate the figures.
