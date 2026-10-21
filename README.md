@@ -4,13 +4,13 @@ MATLAB implementation of the Mixed-Source Melting model (MSM3) to investigate th
 
 The package includes:
 
-- The main script (*mainMixedSourceMelting.m*) to run forward simulations or adaptive Monte Carlo simulations based on the MSM3 model.
+- The main script (*mainMixedSourceMelting.m*) to run single forward simulations or adaptive Monte Carlo simulations based on the MSM3 model.
 - A post-processing script (*processMonteCarlo.m*) to process and plot Monte Carlo simulation outputs.
-- A user-defined model components file (*userModelComponents.m*) to specify the minerals, major/trace elements and isotopes included in the simulations.
-- A user configuration file (*userFolderPaths.m*) to set the paths to the required model directories, define the model setup and output folder.
+- A user-defined model components file (*userModelComponents.m*) to specify the minerals, major, trace elements and isotopes included in the simulations.
+- A user configuration file (*userFolderPaths.m*) to set the paths to the required model directories and define the model setup and output folder.
 - A *setups* folder containing the configuration files used to initialize the model, including source compositions, model parameters and target geochemical constraints.
 - A *resources* folder containing the data required to run the model.
-- A *utils* folder containing all the supporting functions.
+- A *utils* folder containing all the supporting scripts and functions.
 
 ## Instructions & user changes
 
@@ -32,7 +32,7 @@ The code has been designed to be flexibly used with multiple geochemical proxies
 
 The main user-adjustable setups are defined as follows in subfolders of the *setups* folder:
 
-- **Model options** (*options.txt*): control the modelling workflow, including the activation of Monte Carlo simulations and of each modelling stages, as well as the main model assumptions. When both stages are activated, options determine which compositions and parameters are passed from stage 1 can be passed to stage 2 or taken from the input files.
+- **Model options** (*options.txt*): control the modelling workflow, including the activation of Monte Carlo simulations and of each modelling stages, as well as the main model assumptions. When both stages are activated, specific options determine which compositions and parameters are passed from stage 1 to stage 2 or taken from the input files.
 - **Model parameters** (*parameters.txt*): define the fixed parameters used in the simulations.
 - **Source compositions** (*sources.txt*): specify the starting compositions and their references for each lithology, as well as modal, melting and partition coefficients. These value are read based on their names-references in a user-adjustable lookup table (*input.xlsx*).
 - **Monte Carlo ranges** (*montecarlo_ranges.txt*): define the ranges of input parameters and compositions sampled during Monte Carlo simulations, including which variables are adaptively resampled.
