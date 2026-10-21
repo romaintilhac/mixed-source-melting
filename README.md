@@ -71,16 +71,16 @@ The provided version of *userModelComponents.m* and setups corresponds to this a
 - *default_MC.txt* corresponds to the main Monte Carlo simulation with 20,000 iterations, which is aimed as a joint inversion of the Se-isotope compositions and Se concentrations of the studied pyroxenites and global MORB database (*data.xlsx*).
 - *default_forward.txt* corresponds to a single forward model used to generate detailed model inputs and outputs.
 
-To reproduce **König *et al.* 2026** Figures 2 and 3:
+To reproduce **König *et al.* 2026** Figures 2 and 3 and all the tabulated outputs:
 
 1. Set _setup_name_ to *default_MC.txt* in *userFolderPaths.m*.
 2. Run *mainMixedSourceMelting.m*.
-3. Run *processMonteCarlo.m* to generate the figures.
+3. Run *processMonteCarlo.m* to generate the figures and tabulated outputs.
 
 Alternatively, because no pre-loaded calculation outputs are provided due to storage limitations, running the full Monte Carlo simulation from the scratch will take a fairly long time. The figures can therefore be also obtained from pre-run results provided in the *output* folder:
 
-1. Set _setup_name_ to *default_MC_preload* in *userFolderPaths.m*.
-2. Run *processMonteCarlo.m* to generate the figures.
+1. Set _setup_name_ to *default_MC_prerun* in *userFolderPaths.m*.
+2. Run *processMonteCarlo.m* to generate the figures and tabulated outputs.
 
 To reproduce Electronic Appendix Figures EA1-5:
 
@@ -88,14 +88,11 @@ To reproduce Electronic Appendix Figures EA1-5:
 2. Run *mainMixedSourceMelting.m*.
 3. The figures will be automatically generated.
 
-***Note:*** 
-
-
 ## Credits
 
-By **Romain Tilhac**, CNRS researcher at Géosciences Montpellier, France. <br />
-Updated on October 20th, 2026 <br />
-Contact: romain.tilhac@umontpellier.fr
+By [**Romain Tilhac**](https://romaintilhac.github.io), CNRS researcher at Géosciences Montpellier, France. <br />
+Updated on October 21th, 2026 <br />
+Contact: [romain.tilhac@umontpellier.fr](mailto:romain.tilhac@umontpellier.fr)
 
 ## References
 
