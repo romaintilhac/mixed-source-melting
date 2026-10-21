@@ -9,8 +9,9 @@ The package includes:
 - A user-defined model components file (*userModelComponents.m*) to specify the minerals, major, trace elements and isotopes included in the simulations.
 - A user configuration file (*userFolderPaths.m*) to set the paths to the required model directories and define the model setup and output folder.
 - A *setups* folder containing the configuration files used to initialize the model, including source compositions, model parameters and target geochemical constraints.
+- A *utils* folder containing all the supporting scripts and functions, including an explicit treatment of sulfur sytematics in the two model stages (*Stage1model.m* and *Stage2model.m*), based on calculations of Sulfur Concentration at Sulfide Saturation (SCSS) in *calcSCSS.m*.
 - A *resources* folder containing the data required to run the model.
-- A *utils* folder containing all the supporting scripts and functions.
+- An *outputs* folder containing an example of pre-run model results.
 
 ## Instructions & user changes
 
@@ -64,8 +65,6 @@ The post-processing of adaptive Monte Carlo simulations can be performed using *
 ## Reproducibility note
 
 The model was applied to investigate the geochemical signatures of oceanic recycling in mid-ocean ridge basalts (MORB), based on the selenium (Se)-isotope compositions of pyroxenites, as presented in **König *et al.* 2026**.
-
-To handle the chalcophile behaviour of Se, the two model stages (*Stage1model.m* and *Stage2model.m*) include an explicit treatment of sulfur sytematics based on calculations of Sulfur Concentration at Sulfide Saturation (SCSS) in *calcSCSS.m*.
 
 The version of *userModelComponents.m* and setups provided are already prepared for this application to &delta;<sup>82</sup>Se:
 
