@@ -9,7 +9,7 @@ The package includes:
 - A user-defined model components file (*userModelComponents.m*) to specify the minerals, major, trace elements and isotopes included in the simulations.
 - A user configuration file (*userFolderPaths.m*) to set the paths to the required model directories and define the model setup and output folder.
 - A *setups* folder containing the configuration files used to initialize the model, including source compositions, model parameters and target geochemical constraints.
-- A *utils* folder containing all the supporting scripts and functions, including an explicit treatment of sulfur sytematics in the two model stages (*Stage1model.m* and *Stage2model.m*), based on calculations of Sulfur Concentration at Sulfide Saturation (SCSS) in *calcSCSS.m*.
+- A *utils* folder containing all the supporting scripts and functions, including the two main model stages (*Stage1model.m* and *Stage2model.m*), with an explicit treatment of sulfur sytematics based on Sulfur Concentration at Sulfide Saturation (SCSS) calculations in *calcSCSS.m*.
 - A *resources* folder containing the data required to run the model.
 - An *outputs* folder containing an example of pre-run model results.
 
