@@ -39,7 +39,7 @@ The main user-adjustable setups are defined as follows in subfolders of the *set
 - **Monte Carlo targets** (*montecarlo_targets.txt*): define the target geochemical values and their associated uncertainties used to evaluate model fits.
 - **Computational settings** (*settings.txt*): define the main parameters controlling the adaptive Monte Carlo algorithm (*e.g.,* number of iterations per pass, the maximum number of passes, the target goodness-of-fit and the stagnation criteria) as well as rounding and interpolation used in the model.
 
-You may create new subfolders. The model will run the setup specified by _setup_name_ in *userFolderPaths.m*. You may also want to define the output folder name (_folder_name_) accordingly.
+You may create new subfolders. The model will run the setup specified by _setup_name_ in *userFolderPaths.m*. You may also want to define the output folder name (_folder_name_) accordingly. Any change must be made consistent with the names-references available in *input.xlsx* if relevant.
 
 ***Note:*** Parameters and compositions will be overwritten by randomized inputs if also defined as Monte Carlo ranges.
 
@@ -51,9 +51,7 @@ The model can be directly launched by running *mainMixedSourceMelting.m* from th
 
 - **For a single forward simulation**, set _MonteCarlo_ = 0. In this mode, the model runs once with fixed source compositions (*sources.txt*) and model parameters (*parameters.txt*).
 
-The *resources* folder contains the geochemical databases and lookup tables required by the model. The *utils* folder contains the supporting functions used to initialize and run the simulations, perform the geochemical calculations and process the results.
-
-***Note:*** the model relies on AlphaMELTS and Melt-PX calculations where enabled. Existing calculation outputs are stored in a *preload* folder and reused to reduce computation time. Changing the model configuration may require these calculations to be regenerated. Any change must be made consistent with the name-reference available in *input.xlsx* if relevant.
+***Note:*** the model relies on AlphaMELTS and Melt-PX calculations where enabled. Existing calculation outputs are stored in a *preload* folder and reused to reduce computation time. Changing the model configuration may require these calculations to be regenerated.
 
 ### Processing and plotting
 
@@ -65,26 +63,33 @@ The post-processing of adaptive Monte Carlo simulations can be performed using *
 
 ## Reproducibility note
 
-The model was applied to investigate the geochemical signatures of oceanic recycling in the mid-ocean ridge basalt (MORB) mantle, based on the selenium (Se)-isotope compositions of pyroxenites, as presented in **König *et al.* 2026**.
+The model was applied to investigate the geochemical signatures of oceanic recycling in mid-ocean ridge basalts (MORB), based on the selenium (Se)-isotope compositions of pyroxenites, as presented in **König *et al.* 2026**.
 
 To handle the chalcophile behaviour of Se, the two model stages (*Stage1model.m* and *Stage2model.m*) include an explicit treatment of sulfur sytematics based on calculations of Sulfur Concentration at Sulfide Saturation (SCSS) in *calcSCSS.m*.
 
 The version of *userModelComponents.m* and setups provided are already prepared for this application to &delta;<sup>82</sup>Se:
 
-- *default_MC.txt* corresponds to the main Monte Carlo simulations with 20,000 iterations, which is aimed as a joint inversion of the Se-isotope compositions and Se concentrations of the studied pyroxenites and global MORB database (*data.xlsx*).
+- *default_MC.txt* corresponds to the main Monte Carlo simulation with 20,000 iterations, which is aimed as a joint inversion of the Se-isotope compositions and Se concentrations of the studied pyroxenites and global MORB database (*data.xlsx*).
 - *default_forward.txt* corresponds to a single forward model used to generate detailed model inputs and outputs.
 
 To reproduce **König *et al.* 2026** Figures 2 and 3:
 
-1. Set _setup_name_ to *default_MC.txt* in *userFolderPaths.m*
-2. Run *mainMixedSourceMelting.m*
-3. Run *processMonteCarlo.m*
+1. Set _setup_name_ to *default_MC.txt* in *userFolderPaths.m*.
+2. Run *mainMixedSourceMelting.m*.
+3. Run *processMonteCarlo.m* to generate the figures.
+
+Alternatively, because no preloaded calculation outputs are provided, running the full Monte Carlo simulation from the scratch will take a fairly long time. The figures can therefore be also obtained from pre-run results provided in the *output* folder:
+
+1. Set _setup_name_ to *default_MC_preload* in *userFolderPaths.m*.
+2. Run *processMonteCarlo.m* to generate the figures.
 
 To reproduce Electronic Appendix Figures EA1-5:
 
 1. Set _setup_name_ to *default_forward.txt* in *userFolderPaths.m*
 2. Run *mainMixedSourceMelting.m*.
 3. The figures will be automatically generated.
+
+***Note:*** 
 
 
 ## Credits
