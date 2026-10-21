@@ -9,69 +9,91 @@ The package includes:
 - A user-defined model components file (*userModelComponents.m*) to specify the minerals, major/trace elements and isotopes included in the simulations.
 - A user configuration file (*userFolderPaths.m*) to set the paths to the required model directories, define the model setup and output folder.
 - A *setups* folder containing the configuration files used to initialize the model, including source compositions, model parameters and target geochemical constraints.
-- A *resources* folder containing the data required for the geochemical calculations.
-- A *utils* folder containing all the supporting functions required to run the model.
+- A *resources* folder containing the data required to run the model.
+- A *utils* folder containing all the supporting functions.
 
 ## Instructions & user changes
 
-### 1. Prerequisites
+### Prerequisites
 
-- MATLAB (the code has been tested in Matlab R2024b) with the **Statistics and Machine Learning Toolbox**, which is required for the adaptive Monte Carlo simulations (_randsample_ for weighted resampling and _histogram_ to plot input distributions.
+- MATLAB is required with the **[Statistics and Machine Learning Toolbox](https://www.mathworks.com/products/statistics.html)** (_randsample_ and _histogram_ are need for the adaptive Monte Carlo simulations). The code has been tested in MATLAB R2024b.
 
-- **[Alphamelts 1.9](https://magmasource.caltech.edu/alphamelts/)** to run pMELTS as part of this code with the following changes in _alphamelts_default_env.txt_: *ALPHAMELTS_MINP* +0 and *ALPHAMELTS_SAVE_ALL* true.
+- **[Alphamelts 1.9](https://magmasource.caltech.edu/alphamelts/)** is required to run pMELTS as part of this code. The following changes are needed in *alphamelts_default_env.txt*: *ALPHAMELTS_MINP* +0 and *ALPHAMELTS_SAVE_ALL* true.
 
-- Before running the model, make sure all paths in *userFolderPaths.m* are consistent with your installation, particularly the AlphaMELTS directory (*Alpha_install*) and executable (*Alpha_link*).
+### Configuration
 
-### 2. Setup
+Before running the model, make sure all paths in *userFolderPaths.m* are consistent with your installation, particularly the AlphaMELTS directory (_Alpha_install_) and executable (_Alpha_link_).
+
+The code has been designed to be flexibly used with multiple geochemical proxies, including lithophile and chalcophile major, trace elements and isotopes. To that end, *userModelComponents.m* allows the user to specify the minerals, elements and isotopes to be considered. When selecting an isotope, ensure that its corresponding element is included in the relevant element list.
+
+***Note:*** If adding a new isotope, *buildTableIsotope.m* must be updated accordingly for element indexing and labelling.
+
+### Model setup
 
 The main user-adjustable setups are defined as follows in subfolders of the *setups* folder:
 
 - **Model options** (*options.txt*): control the modelling workflow, including the activation of Monte Carlo simulations and of each modelling stages, as well as the main model assumptions. When both stages are activated, options determine which compositions and parameters are passed from stage 1 can be passed to stage 2 or taken from the input files.
 - **Model parameters** (*parameters.txt*): define the fixed parameters used in the simulations.
-- **Source compositions** (*sources.txt*): specify the starting compositions and their references for each lithology, as well as modal, melting and partition coefficients. These value are read based on their name-reference in a user-adjustable lookup table (*input.xlsx*).
+- **Source compositions** (*sources.txt*): specify the starting compositions and their references for each lithology, as well as modal, melting and partition coefficients. These value are read based on their names-references in a user-adjustable lookup table (*input.xlsx*).
 - **Monte Carlo ranges** (*montecarlo_ranges.txt*): define the ranges of input parameters and compositions sampled during Monte Carlo simulations, including which variables are adaptively resampled.
 - **Monte Carlo targets** (*montecarlo_targets.txt*): define the target geochemical values and their associated uncertainties used to evaluate model fits.
 - **Computational settings** (*settings.txt*): define the main parameters controlling the adaptive Monte Carlo algorithm (*e.g.,* number of iterations per pass, the maximum number of passes, the target goodness-of-fit and the stagnation criteria) as well as rounding and interpolation used in the model.
 
-You may create new subfolders. The model setup that will be run is the one specified by *setup_name* in *userFolderPaths.m*. You may also want to define an output folder name (*folder_name*) accordingly.
+You may create new subfolders. The model setup that will be run is the one specified by _setup_name_ in *userFolderPaths.m*. You may also want to define an output folder name (_folder_name_) accordingly.
 
 ***Note:*** Parameters and compositions may be overwritten by randomized inputs if also defined as Monte Carlo ranges.
 
-The model components included in the calculations can also be modified with caution in *userModelComponents.m*. This file allows the user to specify the minerals, lithophile major elements and trace elements, chalcophile major and trace elements, and isotopes to be considered. When selecting an isotope, ensure that its parent element is included in the corresponding element list. If adding a new isotope, *buildTableIsotope.m* must also be updated accordingly for proper element indexing and plot labelling.
-
-### 3. Running simulations
+### Running simulations
 
 The model can then be directly launched by running *mainMixedSourceMelting.m* from the repository's main directory.
 
-- For adaptive Monte Carlo simulations, set *MonteCarlo = 1* in *options.txt*. The model evaluates the simulated outputs against the target values and uncertainties specified in *montecarlo_targets.txt*. The resulting goodness-of-fit (GOF) values are used to update the sampling distributions between successive passes for variables marked for adaptation in *montecarlo_ranges.txt*. The number of iterations, maximum number of passes, target GOF and stagnation criteria are controlled through *settings.txt*.
+- **For adaptive Monte Carlo simulations**, set _MonteCarlo_ = 1 in *options.txt*. The model generates randomized input distributions and run iteratively as defined in *montecarlo_ranges.txt*. Simulated outputs are then evaluated against the target values and uncertainties specified in *montecarlo_targets.txt*. The resulting goodness-of-fit (GOF) values are used to update the sampling distributions between successive passes for variables marked for adaptation in *montecarlo_ranges.txt*. The number of iterations, maximum number of passes, target GOF and stagnation criteria are controlled through *settings.txt*.
 
-- For a single forward simulation with fixed inputs, set *MonteCarlo = 0*. In this mode, the model runs once using the specified source compositions and model parameters.
+- **For a single forward simulation**, set _MonteCarlo_ = 0. In this mode, the model runs once with fixed source compositions (*sources.txt*) and model parameters (*parameters.txt*).
 
 The *resources* folder contains the geochemical databases and lookup tables required by the model. The *utils* folder contains the supporting functions used to initialize and run the simulations, perform the geochemical calculations and process the results.
 
-***Note:*** the model relies on AlphaMELTS and Melt-PX calculations where enabled. When the corresponding options allow it, existing calculation outputs may be reused to reduce computation time. Changing the model configuration may require these calculations to be regenerated. Any change must be made consistent with the name-reference available in *input.xlsx* if relevant.
+***Note:*** the model relies on AlphaMELTS and Melt-PX calculations where enabled. Existing calculation outputs are stored in a *preload* folder and reused to reduce computation time. Changing the model configuration may require these calculations to be regenerated. Any change must be made consistent with the name-reference available in *input.xlsx* if relevant.
 
-### 4. Processing and plotting
+### Processing and plotting
 
 The post-processing of adaptive Monte Carlo simulations can be performed using *processMonteCarlo.m* after the simulations have finished. This script processes the saved outputs and plot the relevant figures.
 
-**During adaptive Monte Carlo simulations** (MonteCarlo = 1), the model generates plots of the randomized input distributions and simulated outputs for each pass. These plots can be used to monitor the evolution of the sampling distributions and assess the quality of the model fits against the target geochemical constraints. The corresponding plotting scripts are *plotMCinputs.m* and *plotMCoutputs.m*. Compiled outputs and tabulated results are saved in the output directory specified by *folder_name* in *userFolderPaths.m*.
+**During adaptive Monte Carlo simulations** (_MonteCarlo_ = 1), the model generates plots of the randomized input distributions and simulated outputs for each pass. These plots can be used to monitor the evolution of the sampling distributions and assess the quality of the model fits against the target geochemical constraints. The corresponding plotting scripts are *plotMCinputs.m* and *plotMCoutputs.m*. Compiled outputs and tabulated results are saved in the output directory specified by _folder_name_ in *userFolderPaths.m*.
 
-**During single forward simulations**(MonteCarlo = 0), the model automatically generates detailed plots of the model inputs and outputs. The corresponding plotting scripts are *plotStage2Inputs.m* and *plotStage2Outputs.m*.
+**During single forward simulations** (_MonteCarlo_ = 0), the model automatically generates detailed plots of the model inputs and outputs. The corresponding plotting scripts are *plotStage2Inputs.m* and *plotStage2Outputs.m*.
 
 ## Reproducibility note
 
-The model is applied to investigate the origin and evolution of geochemical signatures in the mid-ocean ridge basalt (MORB) mantle, with particular emphasis on selenium isotopes and the mechanisms involved in the deep recycling of oceanic plates, as presented in König *et al.*, *Selenium Isotopes Uncover the Mechanism of the Deep Plate Tectonic Cycle in the MORB Mantle* (*Science Advances*, manuscript no. aec9625).
+The model was applied to investigate the geochemical signatures of oceanic recycling in the mid-ocean ridge basalt (MORB) mantle, based on the selenium (Se)-isotope compositions of pyroxenites, as presented in **König *et al.* 2026**.
 
-The default setup provided corresponds to the Monte Carlo simulations reported in König et al. 
+To handle the chalcophile behaviour of Se, the two model stages (*Stage1model.m* and *Stage2model.m*) include an explicit treatment of sulfur sytematics based on calculations of Sulfur Concentration at Sulfide Saturation (SCSS) in *calcSCSS.m*.
+
+The version of *userModelComponents.m* and setups provided are already prepared for this application to &delta;<sup>82</sup>Se:
+
+- *default_MC.txt* corresponds to the main Monte Carlo simulations with 20,000 iterations, which is aimed as a joint inversion of the Se-isotope compositions and Se concentrations of the studied pyroxenites and global MORB database (*data.xlsx*).
+- *default_forward.txt* corresponds to a single forward model used to generate detailed model inputs and outputs.
+
+To reproduce **König *et al.* 2026** Figures 2 and 3:
+
+1. Set _setup_name_ to *default_MC.txt* in *userFolderPaths.m*
+2. Run *mainMixedSourceMelting.m*
+3. Run *processMonteCarlo.m*
+
+To reproduce Electronic Appendix Figures EA1-5:
+
+1. Set _setup_name_ to *default_forward.txt* in *userFolderPaths.m*
+2. Run *mainMixedSourceMelting.m*.
+3. The figures will be automatically generated.
+
 
 ## Credits
 
-By Romain Tilhac, CNRS researcher at Géosciences Montpellier, France. <br />
+By **Romain Tilhac**, CNRS researcher at Géosciences Montpellier, France. <br />
 Updated on October 20th, 2026 <br />
 Contact: romain.tilhac@umontpellier.fr
 
 ## References
 
-König, S., Varas-Reus, M.I., Tilhac, R., Garrido, C. J. Selenium Isotopes Uncover the Mechanism of the Deep Plate Tectonic Cycle in the MORB Mantle. Science Advances. Manuscript no. aec9625 (preliminary acceptance).
+König, S., Varas-Reus, M.I., Tilhac, R., Garrido, C. J. Selenium Isotopes Uncover the Mechanism of the Deep Plate Tectonic Cycle in the MORB Mantle. *Science Advances*, aec9625 (preliminary acceptance).
 
