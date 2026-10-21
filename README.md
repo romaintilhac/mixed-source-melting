@@ -39,15 +39,15 @@ The main user-adjustable setups are defined as follows in subfolders of the *set
 - **Monte Carlo targets** (*montecarlo_targets.txt*): define the target geochemical values and their associated uncertainties used to evaluate model fits.
 - **Computational settings** (*settings.txt*): define the main parameters controlling the adaptive Monte Carlo algorithm (*e.g.,* number of iterations per pass, the maximum number of passes, the target goodness-of-fit and the stagnation criteria) as well as rounding and interpolation used in the model.
 
-You may create new subfolders. The model setup that will be run is the one specified by _setup_name_ in *userFolderPaths.m*. You may also want to define an output folder name (_folder_name_) accordingly.
+You may create new subfolders. The model will run the setup specified by _setup_name_ in *userFolderPaths.m*. You may also want to define the output folder name (_folder_name_) accordingly.
 
-***Note:*** Parameters and compositions may be overwritten by randomized inputs if also defined as Monte Carlo ranges.
+***Note:*** Parameters and compositions will be overwritten by randomized inputs if also defined as Monte Carlo ranges.
 
 ### Running simulations
 
-The model can then be directly launched by running *mainMixedSourceMelting.m* from the repository's main directory.
+The model can be directly launched by running *mainMixedSourceMelting.m* from the repository's main directory.
 
-- **For adaptive Monte Carlo simulations**, set _MonteCarlo_ = 1 in *options.txt*. The model generates randomized input distributions and run iteratively as defined in *montecarlo_ranges.txt*. Simulated outputs are then evaluated against the target values and uncertainties specified in *montecarlo_targets.txt*. The resulting goodness-of-fit (GOF) values are used to update the sampling distributions between successive passes for variables marked for adaptation in *montecarlo_ranges.txt*. The number of iterations, maximum number of passes, target GOF and stagnation criteria are controlled through *settings.txt*.
+- **For adaptive Monte Carlo simulations**, set _MonteCarlo_ = 1 in *options.txt*. The model generates randomized input distributions as defined in *montecarlo_ranges.txt* and run iteratively. Simulated outputs are then evaluated against the target values and uncertainties specified in *montecarlo_targets.txt*. The resulting goodness-of-fit (GOF) values are used to update the sampling distributions between successive passes for variables marked for adaptation in *montecarlo_ranges.txt*. The number of iterations, maximum number of passes, target GOF and stagnation criteria are controlled through *settings.txt*.
 
 - **For a single forward simulation**, set _MonteCarlo_ = 0. In this mode, the model runs once with fixed source compositions (*sources.txt*) and model parameters (*parameters.txt*).
 
