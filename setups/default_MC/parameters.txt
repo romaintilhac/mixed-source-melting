@@ -22,7 +22,7 @@ R1   		    	|0.1	|default			|Proportion of reacted peridotite to eclogite-derive
 STAGE 2
 
 Tp			|1300   |default			|Mantle potential temperature [¡C]
-PropPyr 		|0  	|default			|Proportion of pyroxenite in the melting regime (0-1)
+PropPyr 		|0  	|default			|Proportion of pyroxenite in the melting regime (0-1) (only used if option.stage1==0)
 PropEcl2		|0.05	|default			|Proportion of eclogite in the melting regime (0-1) (only used if option.stage1==0)
 Pmin			|0	|default			|Minimum pressure for adiabatic decompression melting calculations [GPa]
 Pmax			|6	|default			|Maximum pressure for adiabatic decompression melting calculations [GPa]

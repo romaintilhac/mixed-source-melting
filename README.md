@@ -27,7 +27,7 @@ Before running the model, make sure all paths in *userFolderPaths.m* are consist
 
 The code has been designed to be flexibly used with multiple geochemical proxies, including lithophile and chalcophile major, trace elements and isotopes. To that end, *userModelComponents.m* allows the user to specify the minerals, elements and isotopes to be considered. When selecting an isotope, ensure that its corresponding element is included in the relevant element list.
 
-***Note:*** If adding a new isotope, *buildTableIsotope.m* must be updated accordingly for element indexing and labelling.
+***Note:*** If adding a new isotope, *buildTableIsotope.m* must be updated accordingly for element indexing and labelling. Similarly, if new a mineral is added, *buildTableMineral.m* must be updated.
 
 ### Model setup
 

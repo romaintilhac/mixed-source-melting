@@ -1,0 +1,36 @@
+----------------------------------------------------------------------
+Sources for the input compositions of the MSM3 model. Variables in montecarlo_ranges.txt will overwrite these values.
+Variables, names, references and descriptions are separated by the "|" character. Rows starting with % are ignored.
+Created by Romain Tilhac (romain.tilhac@umontpellier.fr).
+----------------------------------------------------------------------
+
+SOURCES
+
+Variable	    |Name		    |Reference			        |Description	
+	
+ME_Pdt 		    |DMM		    |Workman & Hart 2005		|Starting lithophile major-element compositions of peridotite
+ME_Ecl 		    |Res3		    |Rosenthal et al. 2018		|Starting lithophile major-element compositions of eclogite
+ME_Pyr 		    |M5-40		    |Lambart et al. 2009		|Starting lithophile major-element compositions of pyroxenite
+	
+CE_Pdt 		    |best-fit		    |Yierpan et al. 2019		|Starting chalcophile trace-element compositions of peridotite
+CE_Ecl 		    |mean		    |default_MC			    	|Starting chalcophile trace-element compositions of eclogite
+CE_Pyr 		    |data		    |This study		            	|Starting chalcophile trace-element compositions of pyroxenite (only use if option.stage1==0)
+    
+isoCE_Pdt 	    |data		    |Varas-Reus et al. 2019		|Starting chalcophile isotope compositions of peridotite
+isoCE_Ecl 	    |mean		    |default_MC			    	|Starting chalcophile isotope compositions of eclogite
+isoCE_Pyr 	    |data		    |This study			        |Starting chalcophile isotope compositions of pyroxenite (only use if option.stage1==0)
+
+SE_Pdt		    |sulfide B		    |Yierpan et al. 2019		|Starting major-element compositions of sulfides in peridotite (only used if option.SCSS==1)
+SE_Ecl		    |sulfide B		    |Yierpan et al. 2019		|Starting major-element compositions of sulfides in eclogite (only used if option.SCSS==1)
+SE_Pyr		    |sulfide B		    |Yierpan et al. 2019		|Starting major-element compositions of sulfides in pyroxenite (only used if option.SCSS==1)
+ 
+meltingmode_Pdt	    |defaultPdt		    |Gleeson et al. 2020		|Starting modal compositions of peridotite for non-modal trace-element melting model calculations
+meltingmode_Ecl	    |defaultMaf		    |Gleeson et al. 2020		|Starting modal compositions of eclogite for non-modal trace-element melting model calculations
+meltingmode_Pyr	    |defaultMaf		    |Gleeson et al. 2020		|Starting modal compositions of pyroxenite for non-modal trace-element melting model calculations (only use if option.stage1==0)
+
+melting_Pdt	    |defaultPdt		    |Gleeson et al. 2020		|Melting reaction of peridotite for non-modal trace-element melting model calculations
+melting_Ecl	    |defaultMaf		    |Gleeson et al. 2020		|Melting reaction of eclogite for non-modal trace-element melting model calculations
+melting_Pyr	    |defaultMaf		    |Gleeson et al. 2020		|Melting reaction of pyroxenite for non-modal trace-element melting model calculations (only use if option.stage1==0)
+
+
+ 

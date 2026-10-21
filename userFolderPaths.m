@@ -9,9 +9,9 @@ function pth = userFolderPaths
     pth.Alpha_install = "/home/romaintilhac/Documents/Alphamelts_1.9";     % path to the AlphaMELTS installation directory
     pth.Alpha_link = "/home/romaintilhac/bin";                                                      % path to the directory containing the AlphaMELTS executable
 
-    pth.setup_name="default";                                                                                    % name of the subfolder where setup text files are located
-    pth.folder_name="default";                                                                                   % name of the subfolder where model outputs will be stored
-    pth.run_name="testrun";                                                                                        % for forward single runs only
+    pth.setup_name="default_MC";                                                                           % name of the subfolder where setup text files are located
+    pth.folder_name="default_MC";                                                                          % name of the subfolder where model outputs will be stored
+    pth.run_name="testrun";                                                                                       % for forward single runs only
 
     %==============================================================
 

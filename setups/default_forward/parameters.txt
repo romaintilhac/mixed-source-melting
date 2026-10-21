@@ -1,0 +1,48 @@
+----------------------------------------------------------------------
+Fixed input parameters for the MSM3 model. Variables in montecarlo_ranges.txt will overwrite these values.
+Variables, values, references and descriptions are separated by the "|" character. Rows starting with % are ignored.
+Created by Romain Tilhac (romain.tilhac@umontpellier.fr)
+----------------------------------------------------------------------
+
+FIXED PARAMETERS
+
+Variable		|Value	|Reference			|Description	
+
+STAGE 1
+
+P1			|3.9	|mean				|Pressure [GPa]
+T1_excess  	    	|29	|mean				|Temperature above eclogite solidus [¡C] (only used if option.stage1MeltPx==1)
+phi1			|0.28	|mean 				|Fraction of trapped melt relative to melting degree (1=batch, 0=fractional, 0-1=dynamic melting)
+PropCpx1		|0.15	|default 			|Proportion of cpx in the subsolidus peridotite (0-1, only used if option.stage1MeltPX==1)
+PropMSS_Pdt1		|0.54	|mean				|Proportion of MSS in peridotite (0-1)
+PropMSS_Ecl1		|0.68	|mean				|Proportion of MSS in eclogite (0-1)
+PropEcl1		|0.049	|mean				|Proportion of eclogite in the source (>0-1)
+R1   		    	|2.25	|mean				|Proportion of reacted peridotite to eclogite-derived melt (>0)
+
+STAGE 2
+
+Tp			|1339   |mean				|Mantle potential temperature [¡C]
+Pmin			|0	|default			|Minimum pressure for adiabatic decompression melting calculations [GPa]
+Pmax			|6	|default			|Maximum pressure for adiabatic decompression melting calculations [GPa]
+phi2			|0.25	|mean	 			|Fraction of trapped melt relative to melting degree (1=batch, 0=fractional, 0-1=dynamic melting)
+PropCpx2		|0.15	|default 			|Proportion of cpx in the subsolidus peridotite (0-1)
+PropMSS_Pdt		|0.47	|mean				|Proportion of MSS (0-1)
+PropMSS_Pyr		|0.48	|mean				|Proportion of MSS (0-1)
+PropMSS_Ecl		|0.42	|mean				|Proportion of MSS (0-1)
+
+Ptop			|0	|default			|Pressure at the top of the melting regime [GPa]
+Pchange			|2	|Gleeson et al. 2020		|Pressure at which melting regime changes from triangular to rectangular [GPa] 
+Pshift			|-0.1	|Gleeson et al. 2020		|Pressure at which upwelling velocity changes relative to peridotite solidus depth [GPa]
+Ur			|18.8	|mean				|Relative upwelling rate (after Ingle et al. 2010, 0=constant)
+Xref			|0.0031	|mean				|Fraction of melt added during refertilization (after Rehkamper et al., 1999 and Brenan, 2015, 0-1)
+
+capSCSS_Ecl     	|200	|default	            	|SCSS cap in deep low-F eclogite melts [ppm] (only used if > 0)
+capSCSS_Ecl_P   	|2  	|default	            	|Minimimum pressure to apply SCSS cap [GPa]
+capSCSS_Ecl_F   	|0.3	|default	            	|Maximum melting degree to apply SCSS cap
+
+COMMON
+
+S_Pdt 			|200	|Palme & O'Neill 2014		|Starting sulfur concentration in peridotite [ppm]
+S_Ecl 			|155	|mean				|Starting sulfur concentration in eclogite [ppm]
+fixSCSS			|900	|Lorand et al. 2021		|Fixed SCSS [ppm] (only used if option.SCSS==0)
+resSsil     		|0	|default	            	|Residual S concentrations in bulk silicates after sulfide exhaustion
