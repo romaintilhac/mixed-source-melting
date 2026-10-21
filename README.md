@@ -1,4 +1,4 @@
-# Mixed-Source Melting model (MSM3) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23533319.svg)](https://zenodo.org/records/23533319)
+# Mixed-Source Melting model (MSM3) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23533320.svg)](https://zenodo.org/records/23533320)
 
 MATLAB implementation of the Mixed-Source Melting model (MSM3) to investigate the geochemical signature of recycled oceanic crust in the mantle source of mid-ocean ridge basalts.
 
